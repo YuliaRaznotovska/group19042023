@@ -1,7 +1,7 @@
 # очікуваний результат у вигляді: My name is David, I am 14 years old👣
 
 # example
-# f = '\N{Footprints}'  # not informative naming, numeric code is better for unicode characters, the correct code below
+# f = '\N{Footprints}' # not informative naming, numeric code is better for unicode characters, the correct code below
 smile_footprint = '\U0001F463'
 
 # User_ name = input() # names of variables must be lowercase and include no space
