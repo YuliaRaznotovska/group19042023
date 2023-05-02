@@ -5,12 +5,14 @@ from decimal import Decimal
 # goods 1 section
 item_1_title = textwrap.shorten(input('Введіть назву першого товару: ').ljust(20, '.'), width=20, placeholder='...')
 item_1_quantity = input('Введіть бажаєму кількість першого товару (цілі одиниці, як 1, 2, 10): ')
-item_1_cost = input('Введіть ціну першого товару (наприклад: 10, 10.50): ')
+item_1_cost_input = Decimal(input('Введіть ціну першого товару (наприклад: 10, 10.50): '))
+item_1_cost = item_1_cost_input.quantize(Decimal('1.00'))
 
 # goods 2 section
 item_2_title = textwrap.shorten(input('Введіть назву другого товару: ').ljust(20, '.'), width=20, placeholder='...')
 item_2_quantity = input('Введіть бажаєму кількість другого товару (цілі одиниці, як 1, 2, 10): ')
-item_2_cost = input('Введіть ціну другого товару (наприклад: 10, 10.50): ')
+item_2_cost_input = Decimal(input('Введіть ціну другого товару (наприклад: 10, 10.50): '))
+item_2_cost = item_2_cost_input.quantize(Decimal('1.00'))
 
 item_1_total_cost = Decimal(item_1_quantity) * Decimal(item_1_cost)
 item_1_total_cost_right_format = item_1_total_cost.quantize(Decimal('1.00'))
