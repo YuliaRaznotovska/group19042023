@@ -12,17 +12,19 @@ clean_product_data = product_data['data']
 
 product_price_set = []
 product_price_gluten_free_set = []
-total_price = 0
-total_gluten_free_price = 0
+product_price_sum = 0
+gluten_free_price_sum = 0
 
 for product in clean_product_data:
     product_price = product['product_price']
-    product_is_gluten = product['is_gluten']
-    product_price_set.append(product_price)
-    total_price = sum(product_price_set)
-    if product_is_gluten is False:
-        product_price_gluten_free_set.append(product_price)
-        total_gluten_free_price = sum(product_price_gluten_free_set)
+    product_contains_gluten = product['is_gluten']
+    product_stock_number = product['product_stock']
+    total_product_price = product_price * product_stock_number
+    product_price_set.append(total_product_price)
+    product_price_sum = sum(product_price_set)
+    if not product_contains_gluten:
+        product_price_gluten_free_set.append(total_product_price)
+        gluten_free_price_sum = sum(product_price_gluten_free_set)
 
-print('Вартість всіх товарів: ', total_price)
-print('Вартість всіх товарів без глютена: ', total_gluten_free_price)
+print('Вартість всіх товарів: ', product_price_sum)
+print('Вартість всіх товарів без глютена: ', gluten_free_price_sum)
