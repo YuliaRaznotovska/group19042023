@@ -28,9 +28,9 @@ print(rectangle_perimeter(24, 3))
 
 def deletes_letters_in_string(word1: str, word2: str, word3: str):
     """Task 3"""
-    disallowed_letters = 'їж'
-    for letter in disallowed_letters:
-        word1 = word1.replace(letter, '')
+    for letter in word1:
+        if letter.lower() in ('ї', 'ж'):
+            word1 = word1.replace(letter, '')
     word2 = word2.lower()
     word3 = word3.lower()
     for letters in word3:
@@ -39,5 +39,5 @@ def deletes_letters_in_string(word1: str, word2: str, word3: str):
     return word1, word2
 
 
-print(deletes_letters_in_string("їжак", 'хижак', 'вікно'))
+print(deletes_letters_in_string("Їжак", 'хижак', 'вікно'))
 print(deletes_letters_in_string("їжак", 'вОно', 'вікно'))
