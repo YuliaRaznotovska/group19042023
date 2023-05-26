@@ -1,4 +1,4 @@
-def turn_number_into_joke(number) -> str:
+def turn_number_into_joke(number: int) -> str:
     """Task 1"""
     joke_school = 'What does your computer do for lunch? Has a byte!'
     joke_fisherman = 'Him: Nice fish, where did you catch him? Me:In the water! Him:What did you catch him on? Me: ' \
@@ -26,18 +26,23 @@ def rectangle_perimeter(width, length) -> float:
 print(rectangle_perimeter(24, 3))
 
 
-def deletes_letters_in_string(word1: str, word2: str, word3: str):
+def deletes_letters_in_string(input_word: str) -> str:
     """Task 3"""
-    for letter in word1:
+    for letter in input_word:
         if letter.lower() in ('ї', 'ж'):
-            word1 = word1.replace(letter, '')
-    word2 = word2.lower()
-    word3 = word3.lower()
-    for letters in word3:
-        if letters in word2:
-            word2 = word2.replace(letters, '')
-    return word1, word2
+            input_word = input_word.replace(letter, '')
+    return input_word
 
 
-print(deletes_letters_in_string("Їжак", 'хижак', 'вікно'))
-print(deletes_letters_in_string("їжак", 'вОно', 'вікно'))
+def deletes_common_letters(original_word: str, word_to_compare: str) -> str:
+    original_word = original_word.lower()
+    word_to_compare = word_to_compare.lower()
+    for letters in word_to_compare:
+        if letters in original_word:
+            original_word = original_word.replace(letters, '')
+    return original_word
+
+
+print(deletes_letters_in_string('Їжак'))
+print(deletes_common_letters('хижак', 'вікно'))
+print(deletes_common_letters('вОно', 'вікно'))
