@@ -17,7 +17,7 @@ print(turn_number_into_joke(2))
 print(turn_number_into_joke(88))
 
 
-def rectangle_perimeter(width, length) -> float:
+def rectangle_perimeter(width: float, length: float) -> float:
     """Task 2"""
     perimeter_result = (width + length) * 2
     return perimeter_result
