@@ -28,8 +28,17 @@ class Vehicle(ABC):
                 transferred_amount = available_space
             self.remaining_fuel -= transferred_amount
             other.remaining_fuel += transferred_amount
+            return self.remaining_fuel, other.remaining_fuel
         else:
-            return 'Lack of fuel in the source vehicle.'
+            available_space = other.tank_volume - other.remaining_fuel
+            amount = self.remaining_fuel
+            if amount <= available_space:
+                transferred_amount = amount
+            else:
+                transferred_amount = available_space
+            self.remaining_fuel -= transferred_amount
+            other.remaining_fuel += transferred_amount
+            return self.remaining_fuel, other.remaining_fuel
 
     @abstractmethod
     def __str__(self):
@@ -70,3 +79,4 @@ motorcycle1 = Motorcycle(sidecar_available=True, make='Harley', tank_volume=6, m
 car1.refuel(1)
 car1.refuel(8)
 car1.transfer_fuel(motorcycle1, 2)
+car1.transfer_fuel(motorcycle1, 10)
