@@ -19,6 +19,8 @@ class Account:
     def withdraw_money(self, summa):
         if self.balance >= summa or self.credit_allowed:
             self.balance -= summa
+        else:
+            raise ValueError
 
     def change_credit_status(self, new_status: bool):
         self.credit_allowed = new_status

@@ -1,3 +1,6 @@
+import pytest
+
+
 def test_original_balance(new_deposit_account):
     assert new_deposit_account.balance == 0
 
@@ -14,8 +17,8 @@ def test_withdraw_money(new_deposit_account):
 
 def test_withdraw_money_over_limit(new_deposit_account):
     new_deposit_account.balance = 100
-    new_deposit_account.withdraw_money(150)
-    assert AssertionError
+    with pytest.raises(ValueError):
+        new_deposit_account.withdraw_money(450)
 
 
 def test_change_credit_status(new_deposit_account):
