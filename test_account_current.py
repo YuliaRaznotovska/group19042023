@@ -18,7 +18,7 @@ def test_withdraw_money(new_current_account):
 def test_withdraw_money_over_limit(new_current_account):
     new_current_account.balance = 100
     with pytest.raises(ValueError):
-        new_current_account.withdraw_money(40)
+        new_current_account.withdraw_money(405)
 
 
 def test_change_credit_status(new_current_account):
